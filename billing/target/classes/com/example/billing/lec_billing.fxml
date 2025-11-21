@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600" prefWidth="900" style="-fx-background-color: #0078D7;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.MainController">
+
+    <!-- Top Title + Logout -->
+    <top>
+        <HBox alignment="CENTER" spacing="20">
+            <padding>
+                <Insets bottom="10" left="20" right="20" top="10" />
+            </padding>
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Lesotho Electricity Company - Billing System" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnLogout" onAction="#handleLogout" style="-fx-background-color: #d9534f; -fx-text-fill: white; -fx-font-weight: bold;" text="Logout" />
+        </HBox>
+    </top>
+
+    <!-- Center: Form for customer registration -->
+    <center>
+        <GridPane hgap="10" vgap="10">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="100" />
+                <ColumnConstraints halignment="LEFT" minWidth="200" />
+            </columnConstraints>
+
+            <Label text="Customer ID:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtCustomerId" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Name:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Address:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="txtAddress" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Meter Number:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="txtMeterNumber" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <Label text="Usage (kWh):" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <TextField fx:id="txtUsage" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </center>
+
+    <!-- Right: Action Buttons -->
+    <right>
+        <VBox alignment="TOP_CENTER" spacing="10">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <Button fx:id="btnAdd" onAction="#handleAddCustomer" text="Add Customer" />
+            <Button fx:id="btnUpdate" onAction="#handleUpdateCustomer" text="Update" />
+            <Button fx:id="btnDelete" onAction="#handleDeleteCustomer" text="Delete" />
+            <Button fx:id="btnPrint" onAction="#handlePrintReceipt" text="Print Receipt" />
+            <Button fx:id="btnCharts" onAction="#handleOpenCharts" text="View Charts" />
+            <TextField fx:id="txtSearch" promptText="Search by ID or Name" />
+            <Button fx:id="btnSearch" onAction="#handleSearchCustomer" text="Search" />
+        </VBox>
+    </right>
+
+    <!-- Bottom: TableView -->
+    <bottom>
+        <VBox spacing="10">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Customer Records" textFill="WHITE" />
+            <TableView fx:id="tableCustomers" prefHeight="250">
+                <columns>
+                    <TableColumn fx:id="colId" prefWidth="100" text="Customer ID" />
+                    <TableColumn fx:id="colName" prefWidth="120" text="Name" />
+                    <TableColumn fx:id="colAddress" prefWidth="150" text="Address" />
+                    <TableColumn fx:id="colMeter" prefWidth="120" text="Meter Number" />
+                    <TableColumn fx:id="colUsage" prefWidth="100" text="Usage (kWh)" />
+                    <TableColumn fx:id="colBill" prefWidth="100" text="Bill (M)" />
+                </columns>
+            </TableView>
+        </VBox>
+    </bottom>
+
+</BorderPane>

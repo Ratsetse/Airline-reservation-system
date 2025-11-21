@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.controllers.ChartsController"
+            prefWidth="800" prefHeight="600">
+
+    <children>
+        <VBox spacing="15" layoutX="20" layoutY="20" prefWidth="760" prefHeight="560">
+
+            <Label text="Customer Payment Charts" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <HBox spacing="10">
+                <Label text="Select Chart Type:"/>
+                <ChoiceBox fx:id="chartTypeChoiceBox"/>
+                <Button text="Load Chart" onAction="#handleLoadChart"/>
+            </HBox>
+
+            <BorderPane fx:id="chartContainer" prefHeight="500" prefWidth="760"/>
+
+        </VBox>
+    </children>
+</AnchorPane>

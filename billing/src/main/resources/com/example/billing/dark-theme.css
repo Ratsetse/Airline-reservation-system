@@ -1,0 +1,23 @@
+.root {
+    -fx-background-color: #121212;
+    -fx-text-fill: #ddd;
+}
+
+.label {
+    -fx-text-fill: #eee;
+}
+
+.button {
+    -fx-background-color: #1e88e5;
+}
+
+.text-field, .password-field {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: #eee;
+    -fx-border-color: #333;
+}
+
+.table-view {
+    -fx-background-color: #1e1e1e;
+    -fx-border-color: #333;
+}
